@@ -1,0 +1,87 @@
+<html>
+
+<head>
+  <!-- Erica's Page will show on the tab... -->
+  <style>
+    body {
+      background-image: url('http://www.lancefarrow.ca/wp-content/uploads/2014/06/triangle-background-17.png');
+      background-position: left top;
+      background-attachment: fixed;
+    }
+  </style>
+  <title>Erica's Page</title>
+  <style>
+    html {
+      width: 75%;
+      position: fixed;
+      left: 50%;
+      margin-left: -37.5%;
+    }
+    
+    <!-- but this won't show if I specify the inline style -->      
+ div {
+      background: grey;
+    }
+    
+    div span {
+      background: grey;
+    }
+    
+    span.highlight {
+      color: yellow;
+      background: blue;
+    }
+    
+    span#special-1 {
+      font-size: 4em;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <h1 style='font-family: Monospace; color: black'> <center>Welcome to Erica's Page</center></h1>
+
+  <!--     <p style="font-size: 15px; text-align: left;">This course will address basic data visualization techniques and design principles. Students will obtain practical experience with the visualization of complex data, including multivariate data, geospatial data, textual data, time series, and network data.</p> -->
+  <p>
+    <p style='font-family: Monospace; font-size:20px; color: darkred '>Expected Graduation Date : 2016/07/01</p>
+    <script>
+      var d = new Date()/1000;
+      var grad = new Date(2016,6,1)/1000;
+      var daysleft = Math.ceil((grad - d)/60/60/24)
+      if (daysleft >0){
+        document.write("Until Last MSAN class: "+ daysleft + " days!")
+      }else{
+        document.write("Now a Proud Alum of MSAN, USF")
+      }
+      
+    </script>
+  </p>
+ <br>
+  <p>
+  <p style='font-family: Monospace; font-size:20px; color: darkred '>Projects</p>
+<ul>
+	<li>Naive Bayes Sentiment Prediction Analysis (Python, R)</li>
+	<li>Clustering Stars using Machine Learning Algorithm (Python)</li>
+	<li>Air-Toxin Exposure (SQL, AWS, S3)</li>
+	<li>Saturn Day Project (Web Scraping)</li>
+</ul>
+  </p>
+
+<!--  Constellations Project: using supervised and unsupervised machine learning algorithms, cluster and learn current stars into constellations
+Naive Bayes Sentiment Prediction Analysis in Python using text-mining techniques: classifier algorithm accuracy level: 80%
+Air-toxin exposure aggregation tool in Python, AWS, and S3 for an individual’s historical geographical location, using historical EPA data (Potential development as a mobile app)
+Saturn Day Project (Hackathon, SF) : Web scraping to obtain lists of Astronomy Clubs in US using Beautiful Soup in order to facilitate the Saturn Day project http://saturnday.herokuapp.com/
+   -->
+    <hr>
+    <p>Github -&nbsp;<a class="bare" href="https://github.com/ericajhlee">https://github.com/ericajhlee</a>
+    </br>
+    LinkedIn -&nbsp;<a class="bare" href="https://www.linkedin.com/in/ericajhlee">https://www.linkedin.com/in/ericajhlee</a>
+    </br>Email -&nbsp;<a class="bare" href="ericajhlee@gmail.com">ericajhlee@gmail.com</a></p>
+
+
+
+</body>
+
+</html>
