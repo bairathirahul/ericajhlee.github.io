@@ -35,12 +35,6 @@
     span#special-1 {
       font-size: 4em;
     }
-
-    p2 {
-      font-family: Monospace;
-      color: darkred;
-      font-size:20px;
-    }
   </style>
 
 </head>
@@ -51,28 +45,27 @@
 
   <!--     <p style="font-size: 15px; text-align: left;">This course will address basic data visualization techniques and design principles. Students will obtain practical experience with the visualization of complex data, including multivariate data, geospatial data, textual data, time series, and network data.</p> -->
   <p>
-    <p style='font-family: Monospace; font-size:20px; color: darkred '>Expected Graduation Date : 2016/07/01
+    <p style='font-family: Monospace; font-size:20px; color: darkred '>Expected Graduation Date : 2016/07/01</p>
     <script>
       var d = new Date()/1000;
       var grad = new Date(2016,6,1)/1000;
       var daysleft = Math.ceil((grad - d)/60/60/24)
       if (daysleft >0){
-        document.write("<p2>   ("+ daysleft + " days left!)  </p2>")
+        document.write("Until Last MSAN class: "+ daysleft + " days!")
       }else{
-        document.write("<h3>Now a Proud Alum of MSAN, USF</h3>")
+        document.write("Now a Proud Alum of MSAN, USF")
       }
       
     </script>
-    </p>
   </p>
  <br>
   <p>
   <p style='font-family: Monospace; font-size:20px; color: darkred '>Projects</p>
 <ul>
-	<li><a class="bare" href="Projects/NaiveBayes_SentimentAnalysis.html">Naive Bayes Sentiment Prediction Analysis (Spark, Python)</a></li>
-	<li><a class="bare" href="Projects/constellation/visualization.png">Clustering Stars using Machine Learning Algorithm (Python)</a></li>
+	<li><a class="bare" href="/NaiveBayes_SentimentAnalysis.html">Naive Bayes Sentiment Prediction Analysis (Spark, Python)</a></li>
+	<li>Clustering Stars using Machine Learning Algorithm (Python)</li>
 	<li>Air-Toxin Exposure (SQL, AWS, S3)</li>
-	<li><a class="bare" href = 'http://saturnday.herokuapp.com/'>Saturn Day Project (Web Scraping)</a></li>
+	<li>Saturn Day Project (Web Scraping)</li>
 </ul>
   </p>
 

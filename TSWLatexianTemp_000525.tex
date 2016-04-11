@@ -1,0 +1,245 @@
+\documentclass[]{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usetikzlibrary{arrows,intersections}
+\usepackage{wrapfig}
+\usepackage{listings}
+\usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
+\usepackage[american]{babel}
+
+\usepackage{graphicx}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{graphicx}
+%\graphicspath{ {home/Users/EricaJhLee/MSAN/LinearRegression/hw/hw1/} }
+
+\xdefinecolor{gray}{rgb}{0.4,0.4,0.4}
+\xdefinecolor{blue}{RGB}{58,95,205}% R's royalblue3; #3A5FCD
+
+\lstset{% setup listings
+	language=R,% set programming language
+	basicstyle=\ttfamily\small,% basic font style
+	keywordstyle=\color{blue},% keyword style
+        commentstyle=\color{gray},% comment style
+	numbers=left,% display line numbers on the left side
+	numberstyle=\scriptsize,% use small line numbers
+	numbersep=10pt,% space between line numbers and code
+	tabsize=3,% sizes of tabs
+	showstringspaces=false,% do not replace spaces in strings by a certain character
+	captionpos=b,% positioning of the caption below
+        breaklines=true,% automatic line breaking
+        escapeinside={(*}{*)},% escaping to LaTeX
+        fancyvrb=true,% verbatim code is typset by listings
+        extendedchars=false,% prohibit extended chars (chars of codes 128--255)
+        literate={"}{{\texttt{"}}}1{<-}{{$\bm\leftarrow$}}1{<<-}{{$\bm\twoheadleftarrow$}}1
+        {~}{{$\bm\sim$}}1{<=}{{$\bm\le$}}1{>=}{{$\bm\ge$}}1{!=}{{$\bm\neq$}}1{^}{{$^{\bm\wedge}$}}1,% item to replace, text, length of chars
+        alsoletter={.<-},% becomes a letter
+        alsoother={$},% becomes other
+        otherkeywords={!=, ~, $, \&, \%/\%, \%*\%, \%\%, <-, <<-, /},% other keywords
+        deletekeywords={c}% remove keywords
+}
+
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+%\lhead{\hmwkAuthorName}
+%\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime)}
+%\rhead{\hmwkTitle}
+%\lfoot{\lastxmark}
+%\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+%
+%\newcommand{\tab}[1]{\hspace{.160\textwidth}\rlap{#1}}
+%\newcommand{\hmwkTitle}{Homework\ \#1}
+%\newcommand{\hmwkDueDate}{February 12, 2014}
+%\newcommand{\hmwkClass}{Linear Regression}
+%\newcommand{\hmwkClassInstructor}{ Professor Paul Intrevado}
+%\newcommand{\hmwkAuthorName}{Erica Jh Lee}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}
+    \vspace{3in}
+}
+
+\author{\textbf{\hmwkAuthorName}}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\title{Types of Random Variables (Models)}
+\author{Erica Lee}
+\date{March 31, 2016}
+\maketitle
+
+
+\section{Discrete Random Variables}
+
+
+\subsection*{Bernoulli(p)}
+Y has two possible outcomes "Success" or "Failure"\\
+
+Y$\sim$ Bernoulli(p), p = P(``Success"), in other words, Y = \# success of 1 trial\\
+
+\textbullet \ Bernoulli : Distribution\\
+\indent \textbullet \ p : parameter that characterizes distribution\\
+
+$\mathbf{E}[Y] = p$\\
+\indent Var($Y$) = p(1-p)\\
+
+
+
+
+\subsection*{Binomial(n,p)}
+Y = \# of successes in n independent Bernoulli(p) trials\\
+
+Y$\sim$ Binomial(n,p), p = P(``Success"), in other words, Y = \# success of 1 trial\\
+
+$\mathbf{E}[Y] = np$\\
+\indent Var($Y$) = np(1-p)\\
+
+$X_1, \dot , X_n \sim$ iid Bermoulli(p), then, Y = $\sum^{n} X_i \sim Bin(n,p)$\\
+
+
+
+\subsection*{Poisson($\lambda$)}
+Y is a random variable representing a count\\
+
+Y$\sim$ Po($\lambda$),\\ 
+\indent Y $\in$ \{0,1,2\}\\
+\indent$\mathbf{E}[Y] = Var($Y$) = \lambda$\\\\
+Note: the only discrete RV this is true for...
+
+
+
+
+\subsection*{Geometric(p)}
+
+Y = \# of trials (with Binary outcomes) needed before the $1^{st}$ success\\
+Y $\sim$ Geometric(p)\\
+p = probability of success\\
+
+Y $\in$ \{ 1,2,3, ...\}
+
+$\mathbf{E}[Y] = \frac{1}{p}$\\
+Var(Y) = $\frac{1-p}{p^2}$\\
+
+\textit{Only one discrete distribution that is Memory-less!}
+\subsubsection*{Memoryless Property}
+A random variable Y is memoryless if P(Y>t|Y>s) = P(Y>t-s), t-s\\\\
+\textbullet \ Discrete distribution: Geometric(p)\\
+\textbullet \ Continuous distribution: Exponential($\lambda$)
+
+
+
+\subsection*{Negative Binomial(p, k)}
+
+Y = \# of trials needed before k success (trials have only "successes" or "failures")\\
+Y $\sim$ NegtiveBinomial(k)\\
+p = probability of success\\
+
+Y $\in$ \{ k,k+1, ...\}
+
+$\mathbf{E}[Y] = \frac{pr}{(1-p)}$\\
+Var(Y) = $\frac{pr}{(1-p)^2}$\\
+
+
+
+\section{Continuous Random Variables}
+\subsection*{Uniform(a,b)}
+Y has equal chance of taking on any interval $[a,b]$\\
+p(Y $\in [x, x+l]$) = $\frac{l}{b-a}$
+Y$\sim$ Uniform(a,b)
+$\mathbf{E}[Y] = \frac{a+b}{2}$\\
+Var(Y) = $\frac{(b-a)^2}{12}$\\
+
+\subsection*{Normal($\mu, \sigma^2$)}
+Y$\sim N(\mu,\sigma^2)$\\
+if the density (histogram) of Y is bell-shaped\\
+
+\subsection*{Exponential($\lambda$)}
+Y = waiting time before an event occurs\\
+Y $\sim \ \text{Exp}(\lambda)$ \\
+$\lambda$ is a mean waiting time AND the rate\\
+Var(Y) = $\lambda^2$
+
+
+
+\end{document}
